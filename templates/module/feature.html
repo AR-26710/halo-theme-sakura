@@ -1,4 +1,4 @@
-<div class="top-feature" th:if="${not #arrays.isEmpty(theme.config.focus.features)}" th:fragment="feature">
+<div class="top-feature" th:if="${not #arrays.isEmpty(theme.config.focus.features)} or ${theme.config.focus.enable_hot_post}" th:fragment="feature">
   <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif">
     <span
       th:if="${not #strings.isEmpty(theme.config.focus.feature_icon)}"
@@ -12,7 +12,8 @@
     <span th:if="${#strings.isEmpty(theme.config.focus.feature_title)}" data-i18n="home.feature.title"></span>
   </h1>
 
-  <div class="top-feature-inner">
+  <div class="top-feature-inner"
+       th:with="posts = ${postFinder.list({page: 1,size: #conversions.convert(theme.config.focus.hot_post_num, 'java.lang.Integer'),sort: {'stats.visit,desc', 'metadata.creationTimestamp,asc'}})}">
     <div class="top-feature-item" th:each="feature : ${theme.config.focus.features}">
       <div class="feature-container">
         <a data-pjax th:href="${feature.link}" target="_blank" aria-label="visit the concentrated content">
@@ -36,6 +37,34 @@
             </h3>
             <p>
               <span th:text="${feature.description}"></span>
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="top-feature-item" th:each="post : ${posts.items}">
+      <div class="feature-container">
+        <a data-pjax th:href="@{${post.status.permalink}}" target="_blank" aria-label="visit the concentrated content">
+          <img
+            class="lazyload"
+            th:alt="${post.spec.title}"
+            th:with="cover = ${post.spec.cover}"
+            th:data-src="${cover}"
+            th:data-srcset="|${thumbnail.gen(cover, 's')} 400w,
+                        ${thumbnail.gen(cover, 'm')} 800w,
+                        ${thumbnail.gen(cover, 'l')} 1200w,
+                        ${thumbnail.gen(cover, 'xl')} 1600w|"
+            data-sizes="auto"
+            alt="cover picture of focusing on content"
+            width="780"
+            height="160"
+          />
+          <div class="info">
+            <h3>
+              <span th:text="${post.spec.title}"></span>
+            </h3>
+            <p>
+              <span th:text="${post.status.excerpt}"></span>
             </p>
           </div>
         </a>
