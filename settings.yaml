@@ -400,6 +400,23 @@ spec:
             - $formkit: text
               name: description
               label: 描述
+        - $formkit: select
+          if: "$get(top_feature).value == true"
+          name: enable_hot_post
+          label: 聚焦热门文章
+          id: enable_hot_post
+          value: false
+          options:
+            - value: true
+              label: 开启
+            - value: false
+              label: 关闭
+        - $formkit: number
+          if: "$get(enable_hot_post).value == true"
+          name: hot_post_num
+          label: 热门文章数量
+          id: hot_post_num
+          value: '3'
     - group: post
       label: 文章页
       formSchema:
