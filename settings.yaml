@@ -490,6 +490,17 @@ spec:
           name: author_profile
           label: 博主信息
           value: true
+        - $formkit: select
+          name: enable_reward
+          id: enable_reward
+          label: 全局打赏
+          help: 可在文章设置中单独设置
+          value: false
+          options:
+            - value: true
+              label: 开启
+            - value: false
+              label: 关闭
         - $formkit: repeater
           name: reward
           label: 文章打赏
