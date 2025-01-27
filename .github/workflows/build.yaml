@@ -2,18 +2,19 @@ name: resource-build-actions
 on:
   push:
     branches:
-      - main
+      - master
     paths-ignore:
       - 'docs/**'
       - '**.md'
       - 'templates/**'
   pull_request:
     branches:
-      - main
+      - master
     paths-ignore:
       - 'docs/**'
       - '**.md'
       - 'templates/**'
+  workflow_dispatch:
 
 jobs:
   build:
