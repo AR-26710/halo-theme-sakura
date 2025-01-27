@@ -44,6 +44,16 @@ spec:
       value: "true"
       on-value: "true"
       off-value: "false"
+    - $formkit: select
+      name: reward
+      label: 开启打赏
+      help: "须在主题配置中的文章设置中进行文章打赏配置"
+      value: "false"
+      options:
+        - value: "true"
+          label: 是
+        - value: "false"
+          label: 否
 
 ---
 

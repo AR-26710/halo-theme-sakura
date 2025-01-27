@@ -36,7 +36,9 @@
       </div>
 
       <div
-        th:if="${not #arrays.isEmpty(theme.config.post.reward)}"
+        th:if="${theme.config.post.enable_reward} 
+                or ${#annotations.getOrDefault(post, 'reward','false') 
+                and not #arrays.isEmpty(theme.config.post.reward)}"
         class="single-reward"
       >
         <div class="reward-open">
