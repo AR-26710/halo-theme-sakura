@@ -19,4 +19,10 @@
   <th:block th:fragment="content">
     <th:block th:replace="~{macro/content-links}" />
   </th:block>
+  
+  <th:block th:fragment="content">
+    <th:block th:replace="~{macro/content-links}" />
+    <!--/* 评论组件 */-->
+    <th:block th:replace="~{module/comment :: comment(group = 'plugin.halo.run', kind = 'Plugin', name = ${pluginName})}" />
+  </th:block>
 </html>
