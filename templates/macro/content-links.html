@@ -5,13 +5,13 @@
       th:utext="${singlePage.content.content}">
     </th:block>
     <div class="links" th:if="${pluginFinder.available('PluginLinks')}">
-      <th:block th:each="group : ${linkFinder.groupBy()}" th:if="${not #lists.isEmpty(group.links)}">
+      <th:block th:each="group : ${linkFinder.groupBy()}" th:if="${#annotations.getOrDefault(group, 'hide','false') == 'false'}">
         <h3 class="link-title">
           <span class="fake-title" th:text="${group.spec.displayName}"></span>
         </h3>
         <ul class="link-items">
           <li 
-            class="link-item" th:each="link : ${group.links}">
+            class="link-item" th:each="link : ${group.links}" th:if="${#annotations.getOrDefault(link, 'hide','false') == 'false'}">
             <a 
               class="link-item-inner" th:href="${link.spec.url}" th:title="${link.spec.displayName}"
               target="_blank" rel="noopener noreferrer" aria-label="will visit the URL pointed to by the friend link">
