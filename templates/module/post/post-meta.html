@@ -2,7 +2,7 @@
   <div class="meta-container">
     <div class="post-meta-item">
       <span class="post-meta-item-avatar" itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a th:href="${site.url}" itemprop="url" rel="index" aria-label="website URL">
+        <a th:href="${post.owner.permalink}" itemprop="url" rel="index" aria-label="website URL">
           <img
             th:src="${post.owner.avatar ?: #theme.assets('/images/default/avatar.webp')}"
             alt="author avatar"
@@ -14,7 +14,7 @@
 
       <span class="post-authore-item-name" data-pjax itemprop="about" itemscope itemtype="http://schema.org/Thing">
         <a
-          th:href="${site.url}"
+          th:href="${post.owner.permalink}"
           th:text="${post.owner.displayName}"
           itemprop="url"
           rel="index"
