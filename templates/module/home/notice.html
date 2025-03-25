@@ -1,7 +1,7 @@
 <th:block th:fragment="notice">
   <div
     th:if="${not #strings.isEmpty(theme.config.others.notice_title)}"
-    th:style="${theme.config.mainScreen.focus_height ? 'margin-top: 20px;':''}"
+    th:style="${theme.config.mainScreen.head_focus ? 'margin-top: 20px;':'margin-top: 80px;'}"
     class="notice"
   >
     <span class="iconify" data-icon="solar:volume-loud-linear"></span>
