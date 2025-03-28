@@ -153,6 +153,11 @@ export default class Post {
       return;
     }
 
+    const contentPageElement = document.querySelector(".single-page-header") as HTMLElement;
+    if (contentPageElement) {
+      return;
+    }
+
     const postWordCount = Util.getWordCount(contentElement);
     if (postWordCount > 0) {
       const seconds = Util.caclEstimateReadTime(postWordCount);
