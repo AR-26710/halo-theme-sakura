@@ -4,6 +4,7 @@
   margin-right: auto;
   background-color: var(--site-content-background-color);
   padding: 0 10px;
+  border-radius: 5px;
 
   &::before,
   &::after {
