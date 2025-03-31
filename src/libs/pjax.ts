@@ -26,7 +26,7 @@ import { Util } from "../utils/util";
 
 NProgress.configure({ trickle: false });
 const pjax = new Pjax({
-  elements: "a[data-pjax]",
+  elements: "a[data-pjax]:not([target='_blank'])",
   selectors: ["head title", ".wrapper", ".pjax"],
   switches: {
     ".wrapper": Pjax.switches.innerHTML,
