@@ -44,7 +44,7 @@
     </div>
     <div class="top-feature-item" th:each="post : ${posts.items}">
       <div class="feature-container">
-        <a data-pjax th:href="@{${post.status.permalink}}" target="_blank" aria-label="visit the concentrated content">
+        <a data-pjax th:href="@{${post.status.permalink}}" th:target="${theme.config.focus.feature_target}" aria-label="visit the concentrated content">
           <img
             class="lazyload"
             th:alt="${post.spec.title}"
