@@ -16,7 +16,7 @@
        th:with="posts = ${postFinder.list({page: 1,size: #conversions.convert(theme.config.focus.hot_post_num, 'java.lang.Integer'),sort: {'stats.visit,desc', 'metadata.creationTimestamp,asc'}})}">
     <div class="top-feature-item" th:each="feature : ${theme.config.focus.features}">
       <div class="feature-container">
-        <a data-pjax th:href="${feature.link}" target="_blank" aria-label="visit the concentrated content">
+        <a data-pjax th:href="${feature.link}" th:target="${theme.config.focus.feature_blank}" aria-label="visit the concentrated content">
           <img
             class="lazyload"
             th:alt="${feature.title}"

@@ -371,6 +371,11 @@ spec:
           label: 展示聚焦内容
           value: true
         - $formkit: text
+          name: feature_blank
+          id: feature_blank
+          value: "_self"
+          label: 链接打开方式
+        - $formkit: text
           if: "$get(top_feature).value == true"
           name: feature_icon
           label: 聚焦图标
