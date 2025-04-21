@@ -536,7 +536,7 @@ spec:
               label: 打赏二维码
               validation: "required"
         - $formkit: checkbox
-          name: post_toc
+          name: post_code
           key: post_code
           id: post_code
           label: 启用代码块
