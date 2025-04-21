@@ -14,7 +14,7 @@
   <!--/* 高亮代码样式 */-->
   <link
     rel="stylesheet"
-    th:if="!${pluginFinder.available('PluginHighlightJS')}"
+    th:if="${theme.config.post.post_code}"
     th:href="@{/assets/dist/css/highlight-{code_pretty}-{version}.min.css(code_pretty=${theme.config.post.code_pretty},version=${theme.spec.version})}"
     type="text/css"
     media="noexist"
