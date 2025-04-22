@@ -101,10 +101,12 @@
           </div>
           <!-- 评论内容 -->
           <div class="moment-tools">
-            <span th:if="${haloCommentEnabled and theme.config.journal.journal_comment}" class="comment-js noselect">
-              <span class="iconify" data-icon="solar:chat-dots-outline"></span>
-              <span class="noticom" th:text="${moment.stats.totalComment}"></span>
-            </span>
+            <th:block th:unless="${theme.config.others.keep_record_mode}">
+              <span th:if="${haloCommentEnabled and theme.config.journal.journal_comment}" class="comment-js noselect">
+                <span class="iconify" data-icon="solar:chat-dots-outline"></span>
+                <span class="noticom" th:text="${moment.stats.totalComment}"></span>
+              </span>
+            </th:block>
             <span
               th:if="${theme.config.journal.journal_likes}"
               class="moment-like noselect"
@@ -115,12 +117,14 @@
             </span>
           </div>
         </div>
-        <div th:if="${haloCommentEnabled and theme.config.journal.journal_comment}" class="comment-box">
-          <!--/* 评论组件 */-->
-          <th:block
-            th:replace="~{module/comment :: comment(group = 'moment.halo.run', kind = 'Moment', name = ${moment.metadata.name})}"
-          />
-        </div>
+        <th:block th:unless="${theme.config.others.keep_record_mode}">
+          <div th:if="${haloCommentEnabled and theme.config.journal.journal_comment}" class="comment-box">
+            <!--/* 评论组件 */-->
+            <th:block
+              th:replace="~{module/comment :: comment(group = 'moment.halo.run', kind = 'Moment', name = ${moment.metadata.name})}"
+            />
+          </div>
+        </th:block>
       </div>
     </span>
   </th:block>
