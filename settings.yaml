@@ -503,14 +503,24 @@ spec:
               label: 打赏二维码
               validation: "required"
         - $formkit: checkbox
+          name: post_code
+          key: post_code
+          id: post_code
+          label: 文章代码块样式
+          help: 如使用了插件（highlight.js 代码高亮），请关闭此选项或者关闭插件的主题端渲染，避免样式冲突
+          value: true
+        - $formkit: checkbox
+          if: "$get(post_code).value == true"
           name: code_line
           label: 代码块增加行号
           value: true
         - $formkit: checkbox
+          if: "$get(post_code).value == true"
           name: code_change_line
           label: 代码块自动换行
           value: false
         - $formkit: select
+          if: "$get(post_code).value == true"
           name: code_pretty
           label: 文章代码高亮主题
           value: Dracula
