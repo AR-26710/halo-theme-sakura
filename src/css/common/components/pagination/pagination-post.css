@@ -60,6 +60,10 @@
     & .label,
     & .info {
       left: 2.5em;
+      max-width: calc(100% - 2.5em);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -67,6 +71,10 @@
     & .label,
     & .info {
       right: 2.5em;
+      max-width: calc(100% - 2.5em);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
