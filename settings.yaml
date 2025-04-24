@@ -375,11 +375,19 @@ spec:
           id: top_feature
           label: 展示聚焦内容
           value: true
-        - $formkit: text
+        - $formkit: select
+          if: "$get(top_feature).value == true"
           name: feature_target
           id: feature_target
-          value: "_self"
+          value: "self"
           label: 链接打开方式
+          options:
+            - label: 当前页面
+              name: self
+              value: "_self"
+            - label: 新页面
+              name: blank
+              value: "_blank"
         - $formkit: text
           if: "$get(top_feature).value == true"
           name: feature_icon
