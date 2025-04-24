@@ -4,6 +4,7 @@ metadata:
   name: theme-sakura-setting
 spec:
   forms:
+    # 基本设置
     - group: general
       label: 基本设置
       formSchema:
@@ -77,6 +78,7 @@ spec:
           name: hour12
           label: 使用 12 小时制
           value: false
+    # 装饰图
     - group: patternimg
       label: 头部装饰图
       formSchema:
@@ -101,6 +103,7 @@ spec:
         - $formkit: attachment
           name: category_patternimg
           label: 分类页默认装饰图
+    # 首页
     - group: mainScreen
       label: 首屏
       formSchema:
@@ -204,6 +207,7 @@ spec:
           key: bgvideo_url
           label: 视频链接
           help: 支持流媒体
+    # 社交网络
     - group: sns
       label: 社交网络
       formSchema:
@@ -362,6 +366,7 @@ spec:
               name: url
               label: 链接
               validation: "required"
+    # 聚焦图
     - group: focus
       label: 聚焦图
       formSchema:
@@ -422,6 +427,7 @@ spec:
           label: 热门文章数量
           id: hot_post_num
           value: '3'
+    # 文章页
     - group: post
       label: 文章页
       formSchema:
@@ -454,6 +460,8 @@ spec:
           value: true
         - $formkit: select
           name: toc_depth
+          id: toc_depth 
+          key: toc_depth
           if: "$get(post_toc).value == true"
           label: 文章目录树展开级别
           value: 0
@@ -529,17 +537,13 @@ spec:
           name: author_profile
           label: 博主信息
           value: true
-        - $formkit: select
+        - $formkit: checkbox
           name: enable_reward
           id: enable_reward
+          key: enable_reward
           label: 全局打赏
           help: 可在文章设置中单独设置
           value: false
-          options:
-            - value: true
-              label: 开启
-            - value: false
-              label: 关闭
         - $formkit: repeater
           name: reward
           label: 文章打赏
@@ -589,6 +593,7 @@ spec:
               label: Github
             - value: Tomorrow Night
               label: Tomorrow Night
+    # 标签及分类页
     - group: tagAndCategory
       label: 标签及分类页
       formSchema:
@@ -601,6 +606,7 @@ spec:
           label: 分类雷达
           help: 需要至少具有 3 个分类时才会显示
           value: true
+    # 瞬间
     - group: journal
       label: 瞬间
       formSchema:
@@ -660,6 +666,7 @@ spec:
           name: journal_bg_blur
           label: 背景图片虚化
           value: false
+    # 相册
     - group: photos
       label: 相册页
       formSchema:
@@ -725,6 +732,7 @@ spec:
               label: 7
             - value: 8
               label: 8
+    # 随机图
     - group: random_image
       label: 随机图
       formSchema:
@@ -841,6 +849,7 @@ spec:
               label: 十张
             - value: 0
               label: 无限
+    # 主题风格
     - group: theme
       label: 主题风格
       formSchema:
@@ -941,6 +950,7 @@ spec:
               label: 是否为默认主题
               help: 同时只能存在一个默认主题
               value: false
+    # 背景音乐
     - group: additional
       label: 背景音乐
       formSchema:
@@ -1031,6 +1041,7 @@ spec:
           name: aplayer_theme
           label: 主题色
           value: "#FFA500"
+    # 提示及监听
     - group: toast
       label: 提示及监听
       formSchema:
@@ -1076,6 +1087,7 @@ spec:
           label: 提示组件文本大小
           value: 14
           min: 1
+    # 其他
     - group: others
       label: 其他
       formSchema:
