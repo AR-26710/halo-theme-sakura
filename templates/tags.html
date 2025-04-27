@@ -8,7 +8,9 @@
       th:replace="~{macro/page-header :: page-header(extension=${tags}, frontCover=${theme.config.patternimg.tag_patternimg}, headerTitle = ~{::headerTitle}, id='tags')}"
     />
   </th:block>
-
+  <th:block  th:fragment="title">
+    <th:block th:text="${theme.config.others.tags} + '|' + ${site.title}"></th:block>
+  </th:block>
   <th:block th:fragment="headerTitle">
     <h1 data-i18n="page.tags.title"></h1>
   </th:block>

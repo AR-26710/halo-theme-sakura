@@ -15,9 +15,7 @@
       />
     </div>
   </th:block>
-  <th:block  th:fragment="title">
-    <th:block th:text="${theme.config.others.tags} + '|' + ${site.title}"></th:block>
-  </th:block>
+
   <th:block th:fragment="headerTitle">
     <h1 data-i18n="page.tags.item.title" th:i18n-options="|{title: '${tag.spec.displayName}'}|"></h1>
   </th:block>
