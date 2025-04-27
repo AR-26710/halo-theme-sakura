@@ -7,7 +7,9 @@
   <th:block th:fragment="title">
     <th:block th:text="${tag.spec.displayName} + '|' + ${site.title}"></th:block>
   </th:block>
-
+  <th:block  th:fragment="title">
+    <th:block th:text="${theme.config.others.tags} + '|' + ${site.title}"></th:block>
+  </th:block>
   <th:block th:fragment="header">
     <div class="tag-header">
       <th:block

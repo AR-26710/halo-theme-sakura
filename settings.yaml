@@ -1123,3 +1123,27 @@ spec:
           label: 备案模式
           value: false
           help: 备案模式，开启之后将隐藏所有留言、评论功能
+        - $formkit: text
+          name: archives
+          id: archives
+          key: archives
+          label: 归档页面标题
+          value: "文章归档"
+        - $formkit: text
+          name: categories
+          id: categories
+          key: categories
+          label: 分类页面标题
+          value: "文章分类"
+        - $formkit: text
+          name: tags
+          id: tags
+          key: tags
+          label: 标签页面标题
+          value: "文章标签"
+        - $formkit: text
+          name: links
+          id: links
+          key: links
+          label: 友链页面标题
+          value: "友情链接"

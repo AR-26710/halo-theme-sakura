@@ -8,7 +8,9 @@
     th:replace="~{macro/page-header :: page-header(extension=${archives}, frontCover=${theme.config.patternimg.archives_patternimg}, headerTitle =  ~{::headerTitle},, id='archives', isRandomImage = true)}"
     />
   </th:block>
-
+  <th:block  th:fragment="title">
+    <th:block th:text="${theme.config.others.archives} + '|' + ${site.title}"></th:block>
+  </th:block>
   <th:block th:fragment="headerTitle">
     <h1 data-i18n="page.archives.title"></h1>
   </th:block>
