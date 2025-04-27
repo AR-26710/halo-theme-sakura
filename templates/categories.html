@@ -40,8 +40,11 @@
         <div class="card">
           <div id="category-echarts"></div>
           <script type="text/javascript" th:inline="javascript">
-            const categories = /*[[${categoryFinder.listAll()}]]*/
-            const categoryRadar = categories.reduce((acc,curr)=> (acc[curr.spec.displayName]=curr.postCount,acc),{});
+            (function() {
+              const categories = /*[[${categoryFinder.listAll()}]]*/ [];
+              const categoryRadar = categories.reduce((acc, curr) => (acc[curr.spec.displayName] = curr.postCount, acc), {});
+              window.categoryRadar = categoryRadar;
+            })();
           </script>
         </div>
       </div>
