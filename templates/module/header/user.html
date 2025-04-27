@@ -30,7 +30,7 @@
       </div>
       <div class="user-menu-option">
         <!-- 管理控制台 -->
-        <a href="/console" target="_blank" data-i18n="user.console" aria-label="access the management console"></a>
+        <a sec:authorize="hasRole('super-role')" href="/console" target="_blank" data-i18n="user.console" aria-label="access the management console"></a>
         <!-- 个人资料 -->
         <a href="/uc/profile" target="_blank" data-i18n="user.info" aria-label="access the personal profile page"></a>
         <!-- 退出登录 -->
