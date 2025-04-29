@@ -172,11 +172,29 @@ class ResourceLinkElement extends HTMLElement {
     link.href = this.getAttribute('href')?.trim() || '#';
     link.target = this.getAttribute('target') || '_self';
 
-    // 文本内容更新
-    const left = this.shadow.querySelector('.rl-left')!;
-    const right = this.shadow.querySelector('.rl-right')!;
-    left.textContent = this.getAttribute('left-text') || '';
-    right.textContent = this.getAttribute('right-text') || '';
+    // 获取文本属性值
+    const leftText = this.getAttribute('left-text') || '';
+    const rightText = this.getAttribute('right-text') || '';
+
+    // 获取左右部分的 DOM 元素
+    const left = this.shadow.querySelector('.rl-left') as HTMLElement;
+    const right = this.shadow.querySelector('.rl-right') as HTMLElement;
+
+    // 处理左侧内容
+    if (leftText.trim() === '') {
+      left.style.display = 'none'; // 为空时隐藏
+    } else {
+      left.style.display = 'flex'; // 不为空时显示
+      left.textContent = leftText; // 设置文本内容
+    }
+
+    // 处理右侧内容
+    if (rightText.trim() === '') {
+      right.style.display = 'none'; // 为空时隐藏
+    } else {
+      right.style.display = 'flex'; // 不为空时显示
+      right.textContent = rightText; // 设置文本内容
+    }
   }
 
   // 生命周期方法
