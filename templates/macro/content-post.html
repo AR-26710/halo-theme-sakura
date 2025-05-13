@@ -87,6 +87,7 @@
           <th:block th:if="${not #lists.isEmpty(post.tags)}">
             <span class="iconify" data-icon="system-uicons:tags" style="scale: 1.3;"></span>
             <a
+              data-pjax
               th:each="tag : ${post.tags}"
               th:href="@{${tag.status.permalink}}"
               rel="tag"
