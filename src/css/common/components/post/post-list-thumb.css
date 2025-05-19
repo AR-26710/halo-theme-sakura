@@ -192,8 +192,9 @@
         transition: color 1s;
 
         & p {
-          height: auto;
+          height: 4.375rem;
           display: block;
+          overflow: hidden;
         }
 
         & .post-bottom {
