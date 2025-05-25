@@ -93,7 +93,7 @@
     }
 
     & .post-footer-meta {
-      display: none;
+      /*display: none;*/
     }
   }
 }
