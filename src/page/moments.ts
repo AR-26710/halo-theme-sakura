@@ -92,13 +92,31 @@ export default class Moments {
    * @return {*}
    * @param {*}
    */
-  @documentFunction(false)
+  @documentFunction()
   public registerMomentItem(containerElement?: HTMLElement) {
     const momentContainerElement = containerElement || document.querySelector(".moments-container .moments-inner");
     if (!momentContainerElement) {
       return;
     }
-    const momentItemElements = momentContainerElement?.querySelectorAll(".moments-item") as NodeListOf<HTMLElement>;
+    
+    const existItems = momentContainerElement.querySelectorAll(".moments-item");
+    existItems.forEach(item => {
+      const likeBtn = item.querySelector(".moment-tools .moment-like");
+      const commentBtn = item.querySelector(".moment-tools .comment-js");
+      
+      if (likeBtn) {
+        const newLikeBtn = likeBtn.cloneNode(true);
+        likeBtn.parentNode?.replaceChild(newLikeBtn, likeBtn);
+      }
+      
+      if (commentBtn) {
+        const newCommentBtn = commentBtn.cloneNode(true);
+        commentBtn.parentNode?.replaceChild(newCommentBtn, commentBtn);
+      }
+    });
+    
+    const momentItemElements = momentContainerElement.querySelectorAll(".moments-item") as NodeListOf<HTMLElement>;
+    
     if (!momentItemElements || momentItemElements.length <= 0) {
       return;
     }
