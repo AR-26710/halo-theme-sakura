@@ -94,6 +94,7 @@
 
     & .post-footer-meta {
       /*display: none;*/
+      padding-bottom: 0.875rem;
     }
   }
 }
