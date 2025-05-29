@@ -26,6 +26,7 @@
     <div class="post-content-wrap">
       <div class="post-date flex-child-center">
         <span class="iconify" data-icon="solar:clock-circle-linear"></span>
+        <span th:text="${post.owner.displayName}"></span>
         <time
           class="publish-time"
           data-i18n="postlist.time"
