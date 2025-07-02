@@ -153,10 +153,13 @@ class ResourceLinkElement extends HTMLElement {
       }
       .rl-left {
         background: var(--rl-left-color);
-        border-right: 2px solid var(--rl-divider-color);
       }
       .rl-right {
         background: var(--rl-right-color);
+      }
+      /* 只有当 right-text 存在时才显示左边框 */
+      .rl-container:has(.rl-right:not(:empty)) .rl-left {
+        border-right: 2px solid var(--rl-divider-color);
       }
       .rl-container:hover .rl-left {
         background: var(--rl-left-hover);
