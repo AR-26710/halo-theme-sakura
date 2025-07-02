@@ -90,7 +90,7 @@ class ResourceLinkElement extends HTMLElement {
     return ['left-text', 'right-text', 'href', 'target'];
   }
 
-  private shadow: ShadowRoot;
+  private readonly shadow: ShadowRoot;
 
   constructor() {
     super();
@@ -186,13 +186,13 @@ class ResourceLinkElement extends HTMLElement {
 
   private updateContent() {
     const link = this.shadow.querySelector('a')!;
-    const href = this.getAttribute('href')?.trim() || '#';
-    const target = this.getAttribute('target') || '_self';
+    const href = this.getAttribute('href')?.trim() ?? '#';
+    const target = this.getAttribute('target') ?? '_self';
     link.setAttribute('href', href);
     link.setAttribute('target', target);
 
-    const leftText = this.getAttribute('left-text') || '';
-    const rightText = this.getAttribute('right-text') || '';
+    const leftText = this.getAttribute('left-text') ?? '';
+    const rightText = this.getAttribute('right-text') ?? '';
 
     const left = this.shadow.querySelector('.rl-left') as HTMLElement;
     const right = this.shadow.querySelector('.rl-right') as HTMLElement;
@@ -240,7 +240,7 @@ class TextBoxElement extends HTMLElement {
     return ['type'];
   }
 
-  private shadow: ShadowRoot;
+  private readonly shadow: ShadowRoot;
 
   constructor() {
     super();
@@ -334,7 +334,7 @@ class TextBoxElement extends HTMLElement {
     const icon = this.shadow.querySelector('.icon') as HTMLElement;
     const content = this.shadow.querySelector('.content') as HTMLElement;
 
-    const type = this.getAttribute('type') || 'normal';
+    const type = this.getAttribute('type') ?? 'normal';
     container.setAttribute('type', type);
 
     // 设置图标
@@ -355,7 +355,8 @@ class TextBoxElement extends HTMLElement {
     icon.textContent = iconText;
 
     // 设置内容
-    content.textContent = this.textContent || '';
+    content.textContent = this.textContent ?? '';
+
   }
 }
 
