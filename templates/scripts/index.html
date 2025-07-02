@@ -3,8 +3,6 @@
   <!--/* 基础 JS */-->
   <script type="module" async th:src="@{/assets/dist/main-{version}.min.js(version=${theme.spec.version})}"></script>
 
-  <script type="module" async th:src="@{/assets/dist/libs/custom-{version}.min.js(version=${theme.spec.version})}"></script>
-
   <!--/* PJAX */-->
   <script type="module" async th:if="${theme.config.others.poi_pjax}" th:src="@{/assets/dist/libs/pjax-{version}.min.js(version=${theme.spec.version})}"></script>
 
