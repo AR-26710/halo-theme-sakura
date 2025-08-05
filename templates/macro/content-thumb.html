@@ -59,12 +59,12 @@
           <span class="iconify" data-icon="solar:eye-linear"></span>
           <span data-i18n="postlist.heat" th:i18n-options="|{visit: '${post.stats.visit}'}|"></span>
         </span>
-        <span class="comments-number flex-child-center">
-          <th:block th:unless="${theme.config.others.keep_record_mode}">
-            <span class="iconify" data-icon="solar:chat-line-line-duotone"></span>
-            <span data-i18n="postlist.comments" th:i18n-options="|{comment: '${post.stats.comment}'}|"> </span>
-          </th:block>
-        </span>
+        <th:block th:unless="${theme.config.others.keep_record_mode}">
+          <span class="comments-number flex-child-center">
+              <span class="iconify" data-icon="solar:chat-line-line-duotone"></span>
+              <span data-i18n="postlist.comments" th:i18n-options="|{comment: '${post.stats.comment}'}|"> </span>
+          </span>
+        </th:block>
         <th:block th:if="${#lists.size(post.categories)} gt 0">
           <span class="flex-child-center">
             <span class="iconify" data-icon="solar:folder-with-files-outline"></span>
