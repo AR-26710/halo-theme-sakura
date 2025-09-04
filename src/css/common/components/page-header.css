@@ -52,9 +52,7 @@
             width: 150%;
             height: 4.375rem;
             background: var(--background-color);
-            left: -25%;
             bottom: -2.875rem;
-            border-radius: 100%;
             position: absolute;
             z-index: 1;
           }

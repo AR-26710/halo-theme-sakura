@@ -10,7 +10,6 @@
 
     & img {
       width: 5.625rem;
-      height: 5.625rem;
       object-fit: cover;
     }
   }
